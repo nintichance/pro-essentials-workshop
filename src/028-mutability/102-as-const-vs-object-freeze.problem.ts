@@ -11,13 +11,22 @@ type ButtonAttributes = {
 
 const modifyButtons = (attributes: ButtonAttributes) => {};
 
-const buttonAttributes = Object.freeze({
+// Object.freeze doesn't recognize the type 'button' instead seeing that it is a string
+// const buttonAttributes = Object.freeze({
+//   cancel: {
+//     type: "button",
+//   },
+//   confirm: {
+//     type: "button",
+//   },
+// });
+
+const buttonAttributes = {
   cancel: {
     type: "button",
   },
   confirm: {
     type: "button",
   },
-});
-
+} as const;
 modifyButtons(buttonAttributes);
