@@ -1,13 +1,16 @@
 import { it, expect } from "vitest";
 
-function add() {
+function add(this: {x:number, y:number}) {
   return this.x + this.y;
 }
 
+// arrow functions cannot have a this parameter
 const setValues = (x: number, y: number) => {
+// func setValues(this: {x:number, y:number}) => {
   this.x = x;
   this.y = y;
 };
+
 
 it("Should add the numbers together", () => {
   const calculator = {
