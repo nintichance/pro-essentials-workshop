@@ -1,5 +1,5 @@
 import { Equal, Expect } from "@total-typescript/helpers";
-
+// Skipping for now as CelloJS doesn't use this much
 type User = {
   id: string;
   name: string;

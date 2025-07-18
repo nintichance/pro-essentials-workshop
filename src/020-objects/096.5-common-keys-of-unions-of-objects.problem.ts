@@ -21,19 +21,20 @@ type Product = {
   imageId: string;
 };
 
-const getAvatarImage = (entity: unknown) => {
+
+const getAvatarImage = (entity: User | Organisation | Product) => {
   {
     // Should not be able to access properties that are
     // not common to both types
 
     // @ts-expect-error
-    entity.age;
+    if (entity.age) entity.age;
 
     // @ts-expect-error
-    entity.address;
+    if (entity.address) entity.address;
 
     // @ts-expect-error
-    entity.price;
+    if (entity.price) entity.price;
   }
 
   return {

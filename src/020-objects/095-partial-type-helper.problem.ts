@@ -5,7 +5,9 @@ interface Product {
   description: string;
 }
 
-const updateProduct = (id: number, productInfo: Omit<Product, "id">) => {
+type PartialProduct = Partial<Product> // this will make all of the keys optional
+
+const updateProduct = (id: number, productInfo: Omit<Partial<Product>, "id">) => {
   // Do something with the productInfo
 };
 

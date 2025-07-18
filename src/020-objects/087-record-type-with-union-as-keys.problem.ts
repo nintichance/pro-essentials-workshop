@@ -1,6 +1,21 @@
 type Environment = "development" | "production" | "staging";
 
-type Configurations = unknown;
+// how to specify dynamics keys when you have a union
+// turn unions in object keys
+type Configurations =
+Record<Environment,
+{
+  apiBaseUrl: string,
+  timeout: number;
+}>;
+
+// Map types are written like indexed signatures
+type ConfigurationsMapped = {
+  [Env in Environment]: {
+    apiBaseUrl: string;
+    timeout: number;
+  }
+}
 
 const configurations: Configurations = {
   development: {
@@ -21,3 +36,4 @@ const configurations: Configurations = {
     timeout: 8000,
   },
 };
+
