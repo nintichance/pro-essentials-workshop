@@ -4,7 +4,7 @@ type User = {
   id: string;
 };
 
-type ApiResponse = [string, User[] | string];
+type ApiResponse = ['error', string] | ['success', User[]]
 
 async function fetchData(): Promise<ApiResponse> {
   try {
@@ -24,6 +24,8 @@ async function fetchData(): Promise<ApiResponse> {
   }
 }
 
+// with discriminated tuples, it keeps up with the order of the items and can allow you to
+// destructure values from your tuple
 async function exampleFunc() {
   const [status, value] = await fetchData();
 

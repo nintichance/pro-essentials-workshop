@@ -1,8 +1,15 @@
 import { Equal, Expect } from "@total-typescript/helpers";
 import { describe, expect, it } from "vitest";
+// when hovering it states value is string[]
+// this is a type predicate
+// TS is inferring that if this function is true, then valaue is an array of strings
+
+const verifyArray = (value: unknown) => {
+  return Array.isArray(value) && value.every((item) => typeof item === "string")
+};
 
 const joinNames = (value: unknown) => {
-  if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
+  if (verifyArray(value)) {
     return value.join(" ");
   }
 
@@ -10,7 +17,7 @@ const joinNames = (value: unknown) => {
 };
 
 const createSections = (value: unknown) => {
-  if (Array.isArray(value) && value.every((item) => typeof item === "string")) {
+  if (verifyArray(value)) {
     return value.map((item) => `Section: ${item}`);
   }
 

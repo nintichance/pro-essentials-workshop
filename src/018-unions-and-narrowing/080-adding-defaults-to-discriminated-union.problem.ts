@@ -1,8 +1,9 @@
 import { Equal, Expect } from "@total-typescript/helpers";
 import { expect, it } from "vitest";
 
+// if we pass in just the radius, we know its a circle, so we can extend and have this be present or not
 type Circle = {
-  kind: "circle";
+  kind?: "circle";
   radius: number;
 };
 
@@ -14,10 +15,11 @@ type Square = {
 type Shape = Circle | Square;
 
 function calculateArea(shape: Shape) {
-  if (shape.kind === "circle") {
-    return Math.PI * shape.radius * shape.radius;
-  } else {
+  if (shape.kind === "square") {
     return shape.sideLength * shape.sideLength;
+  } else {
+    return Math.PI * shape.radius * shape.radius;
+
   }
 }
 

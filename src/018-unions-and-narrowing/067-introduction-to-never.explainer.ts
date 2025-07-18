@@ -4,6 +4,11 @@ const getNever = () => {
 };
 
 // ---------------------------------------------
+// if unknown is the top type in TS
+// and you can assign anything to it
+// never is the botton type in TS
+// represents something that can never happen
+// you can assign never to anything
 
 const fn = (input: never) => {};
 
