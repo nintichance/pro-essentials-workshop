@@ -8,6 +8,7 @@ type IShape = {
   move: (deltaX: number, deltaY: number) => void;
 };
 
+// implements allows a class to use properties on a type
 // How do we ensure our Shape class matches IShape?
 class Shape implements IShape{
   #x: number;
